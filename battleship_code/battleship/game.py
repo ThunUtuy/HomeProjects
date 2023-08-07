@@ -3,6 +3,7 @@ from .constants import BLUE, LIGHT_BLUE, FONT, WHITE, BLACK
 from .board import Board
 from .player import Player
 pygame.font.init()
+pygame.mixer.init()
 
 class Game:
     def __init__(self, win):
@@ -18,7 +19,9 @@ class Game:
         self.win.blit(text, (50, 630))
         ship_length_text = FONT.render(f"ship_length {self.player_ship_length}",1,"white")
         self.win.blit(ship_length_text, (350, 630))
-        #testing
+        self.win_sound_1 = pygame.mixer.Sound("sounds/player1_won.mp3")
+        self.win_sound_2 = pygame.mixer.Sound("sounds/player2_won.mp3")
+        #sound
 
     def select(self, row1, col1, row2, col2):
         if self.game_stage == 1:
@@ -117,12 +120,15 @@ class Game:
             if self.player1.atk_attempts == self.player2.atk_attempts:
                 text = FONT.render("An Equal Fight", 1, "white")
                 self.win.blit(text, (200, 200))
+                pygame.mixer.Sound.play(self.win_sound_1)
             elif self.player1.atk_attempts > self.player2.atk_attempts:
                 text = FONT.render("Player 1 Won", 1, "white")
                 self.win.blit(text, (200, 200))
+                pygame.mixer.Sound.play(self.win_sound_2)
             else:
                 text = FONT.render("Player 2 Won", 1, "white")
                 self.win.blit(text, (200, 200))
+                pygame.mixer.Sound.play(self.win_sound_2)
             self.win.blit(player1_text, (200, 300))
             self.win.blit(player2_text, (200, 400))
 
