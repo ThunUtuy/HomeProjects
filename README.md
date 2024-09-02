@@ -16,7 +16,7 @@ During the deployment stage each player will set up where their ships will be lo
 to set where the ship begins (indicated by the red dot) and another square to set where the ship ends. The length of the current ship will be present. If the square pressed doesn't match the length
 or allignment, the game will count it as setting a new starting point of the ship.
 #### Battle
-Pressed any square to attack. The player who eliminate the opponent with the least moves win!
+Pressed any square to attack. Thenumber of enemy's remaining squares is tracked on the bottom right. The player who eliminate the opponent using fewer attacks win!
 #### PS
 There are sounds!
 
