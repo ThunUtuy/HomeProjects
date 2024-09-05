@@ -92,7 +92,7 @@ class Board():
             pygame.draw.rect(self.win, BLACK, pygame.Rect((0, i - 1, WIDTH, 2)))
         #draw solve_text
         text = FONT_SANS.render("Click Here To Solve", 1, "black")
-        self.win.blit(text, (310, 920))
+        self.win.blit(text, (WIDTH/2 - 130, HEIGHT - 65))
 
                 
         
